@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-android-soulsync-9690b6d6-4e0a-428f-b7bc-47c311ae447f",
+      "rules": "firestore.rules"
+    }
+  ]
+}

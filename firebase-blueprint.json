@@ -1,0 +1,117 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile details and soul resonance attributes",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner user ID matching request.auth.uid"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name of the soulmate user"
+        },
+        "age": {
+          "type": "integer",
+          "description": "Age of the user"
+        },
+        "zodiac": {
+          "type": "string",
+          "description": "Zodiac sign"
+        },
+        "location": {
+          "type": "string",
+          "description": "City or location"
+        },
+        "bio": {
+          "type": "string",
+          "description": "Short soul bio"
+        },
+        "soulArchetype": {
+          "type": "string",
+          "description": "Soul archetype identified by compatibility quiz"
+        },
+        "compatibilityScore": {
+          "type": "integer",
+          "description": "Overall resonance percentage"
+        },
+        "loveLanguage": {
+          "type": "string",
+          "description": "Primary love language"
+        },
+        "interests": {
+          "type": "array",
+          "description": "List of passions and interests"
+        },
+        "isOnline": {
+          "type": "boolean",
+          "description": "Online presence status"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Document creation server timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Document last updated server timestamp"
+        }
+      },
+      "required": ["userId", "name"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Direct message between connected soulmates",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner user ID"
+        },
+        "matchId": {
+          "type": "string",
+          "description": "Identifier of the matched soulmate"
+        },
+        "senderId": {
+          "type": "string",
+          "description": "Sender user ID"
+        },
+        "receiverId": {
+          "type": "string",
+          "description": "Receiver user ID"
+        },
+        "text": {
+          "type": "string",
+          "description": "Message text content"
+        },
+        "messageType": {
+          "type": "string",
+          "description": "Type of message (TEXT, VOICE_NOTE, ICEBREAKER)"
+        },
+        "voiceDurationSec": {
+          "type": "integer",
+          "description": "Duration in seconds for voice notes"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Message creation server timestamp"
+        }
+      },
+      "required": ["userId", "matchId", "senderId", "text"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Collection of user soul profiles"
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Messages subcollection for each user"
+    }
+  }
+}

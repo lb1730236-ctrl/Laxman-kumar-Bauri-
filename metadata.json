@@ -1,0 +1,6 @@
+{
+  "name": "SoulSync",
+  "description": "Online soulmate discovery, deep compatibility communication, real-time chat, and 1-on-1 voice & video calling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
